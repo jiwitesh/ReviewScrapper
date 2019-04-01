@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+ 
+<html>
+<head>
+<div>
+<h1>
+ <a class="navbar-brand">Review Data</a>
+ </h1>
+</div>
+</head>
+
+<body>
+
+
+{% block body %}
+<table border="1" style="width:100%">
+    <thead>
+        <th style="width: 80px;"> UserName</th>
+		<th style="width: 420px;">Review_Title</th>
+        <th style="width: 140px;">Review_Star_Rating</th>
+        <th style="width: 150px;">Review_Date</th>
+        <th style="width: 880px;">Review_Body</th>
+    </thead>
+   
+    <tbody>
+    {% for review in reviews %}
+        <tr>
+            <td>{{review.get('userName')}}</td>
+            <td>{{review.get('Review_Title')}}</td>
+            <td>{{review.get('Review_Star_Rating')}}</td>
+            <td>{{review.get('Review_Date')}}</td>
+            <td>{{review.get('Review_Body')}}</td>
+            
+        </tr>
+          
+    {% endfor %}
+    </tbody>
+
+</table>
+{% endblock %}
+</body>
+</html>

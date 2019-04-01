@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="/static/style.css" type="text/css">
+{% block body %}
+
+<form action="/searchData" method="GET">
+	<div class="user-input">
+		<div class="login-screen">
+			<div class="app-title">
+				<h1>Enter UserName</h1>
+			</div>
+ 
+			<div class="login-form">
+				<div class="control-group">
+				<input style="width:300px" id = "user" type="text" class="input-field"  placeholder="Enter UserName" name="userName"></br>
+				<input type="submit" value="Submit" onclick="window.location.href = 'http://127.0.0.1:8000/searchData';"class="btn btn-primary btn-large btn-block" >
+			    <br>
+			</div>
+		</div>
+	</div>
+</form>
+
+<table border="1" style="width:100%">
+    <thead>
+        <th style="width: 80px;"> UserName</th>
+		<th style="width: 420px;">Review_Title</th>
+        <th style="width: 140px;">Review_Star_Rating</th>
+        <th style="width: 150px;">Review_Date</th>
+        <th style="width: 880px;">Review_Body</th>
+    </thead>
+   
+    <tbody>
+    {% for review in reviews %}
+        <tr>
+            <td>{{review.get('userName')}}</td>
+            <td>{{review.get('Review_Title')}}</td>
+            <td>{{review.get('Review_Star_Rating')}}</td>
+            <td>{{review.get('Review_Date')}}</td>
+            <td>{{review.get('Review_Body')}}</td>
+        </tr>
+          
+    {% endfor %}
+    </tbody>
+
+</table>
+
+{% endblock %}

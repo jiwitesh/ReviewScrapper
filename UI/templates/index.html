@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="/static/style.css" type="text/css">
+{% block body %}
+<!-- {% if session['logged_in'] %}
+<p>You're logged in already!</p>
+{% else %}
+ 
+ 
+<form action="/pushData" method="GET">
+	<div class="user-input">
+		<div class="login-screen">
+			<div class="app-title">
+				<h1>Enter Url</h1>
+			</div>
+ 
+			<div class="login-form">
+				<div class="control-group">
+				<input style="width:800px" type="text" class="login-field"  placeholder="Enter url" name="url"></br>
+				<input type="submit" value="Submit" class="btn btn-primary btn-large btn-block" >
+			    <br>
+			</div>
+		</div>
+	</div>
+</form>
+ 
+{% endif %}
+-->
+<div class="btn-group">
+  <button id = "button1" class="btn btn-primary" onclick="window.location.href = 'http://127.0.0.1:8000/showData';">Show Review Data</button>
+<button id = "button2" class="btn btn-primary btn-block" onclick="location.href = 'http://127.0.0.1:8000/searchResult.html';">Search Record</button>
+
+</div>
+
+<form action="/pushData" method="GET">
+	<div class="user-input">
+		<div class="login-screen">
+			<div class="app-title">
+				<h1>Enter Url</h1>
+			</div>
+ 
+			<div class="login-form">
+				<div class="control-group">
+				<input style="width:800px" type="text" class="login-field"  placeholder="Enter url" name="url"></br>
+				<input type="submit" value="Submit" class="btn btn-primary btn-large btn-block" >
+			    <br>
+			</div>
+		</div>
+	</div>
+</form>
+{% endblock %}
