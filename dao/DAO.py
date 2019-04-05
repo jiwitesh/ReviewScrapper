@@ -26,32 +26,27 @@ class DAO:
             
         
     def insertDataInDB(self, data, dbName, collectionName):
+        
         client = MongoClient()
         db = client[dbName]
         collections = db.collectionName
         result = collections.insert_one(data)
-        #print(collections.find_one())
+        return result;
     def pullCompleteData(self, dbName, collectionName):
         client = MongoClient()
         db = client[dbName]
         collections = db.collectionName
-        #cursor = collections.find()
+       
         cursor = collections.find({},{ "_id": 0, "userName": 1, "Review_Title": 1, "Review_Star_Rating":1, "Review_Date":1, "Review_Body":1 })
-        #x   = []
-        """for i in cursor:
-            x.append(i)
-            print(x)"""
+       
         return cursor
     def pullDataFieldWise(self, propertyName, value, dbName, collectionName):
         client = MongoClient()
         db = client[dbName]
         collections = db.collectionName
-        #query =  { propertyName :  value }
+       
         query = { propertyName: { "$regex": "^"+value+""} }
         cursor = collections.find(query)
-        #x   = []
-        #print(cursor)
-        """for i in cursor:
-            print(i)"""
+       
         return cursor
     
